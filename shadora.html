@@ -1,0 +1,438 @@
+<!--
+   To Do List
+  - hide unused sections: see css wizardry post in char sheets forum
+   
+   Afer summming auto repeat fields is avaialble
+   - auto calc load
+   - auto set enc penalty  
+   
+   -->
+<div class="sheet-bigdiv">
+   <h2>Savage Shadora!</h2>
+   <table style="width: 100%;">
+      <thead>
+         <tr>
+            <th>Name </th>
+            <th>Title</th>
+            <th>XP</th>
+            <th>Rank</th>
+            <th>Race</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               <input type="text" name="attr_PCName"  class="sheet-injury" value="PC Name" title="Enter your character's name" />
+            </td>
+            <td>
+               <input type="text" name="attr_PCTitle"  class="sheet-titles" title="Enter your character's title" />
+            </td>
+            <td>
+               <input type="number" name="attr_XP" class="sheet-short" value="0" title="Enter experience points"/>
+            </td>
+            <td>
+               <select name='attr_Rank' value='N' class='sheet-rank' title="Select Rank" >
+                  <option value='Novice'>Novice</option>
+                  <option value='Seasoned'>Seasoned</option>
+                  <option value='Veteran'>Veteran</option>
+                  <option value='Heroic'>Heroic</option>
+                  <option value='Legendary'>Legendary</option>
+               </select>
+            </td>
+            <td>
+               <select name='attr_Race' value='N' class='sheet-race' title="Select Race"   >
+                  <option value='Agualan'>Agualan</option>
+                  <option value='Fel'>Fel</option>
+                  <option value='Lazuri'>Lazuri</option>
+                  <option value='Lir'>Lir</option>
+                  <option value='Man'>Man</option>
+                  <option value='Mawla'>Mawla</option>
+                  <option value='Nein'>Nein</option>
+                  <option value='Perali'>Perali</option>
+                  <option value='Terali'>Terali</option>
+                  <option value='Vrawk'>Vrawk</option>
+                  <option value='Xern'>Xern</option>
+                  <option value='Familiar'>Familiar</option>
+                  <option value='Familiar'>Vargr</option>
+                  <option value='Familiar'>Zhodani</option>
+                  <option value='Familiar'>Aslan</option>
+                  
+               </select>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <h3>Attributes and Derived Stats</h3>
+   <table style="width: 100%;">
+      <tbody>
+         <tr>
+            <td>
+            <strong class='dee'>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Original  &nbsp; &nbsp; Current &nbsp;</strong>
+            </td>
+            <td> &nbsp;
+            </td>
+         </tr>         <tr>
+            <td>
+               <label class="sheet-shortattrlabel">AGI:</label> 
+               <input type="text" name='attr_OrigAgility' class='sheet-stat' value="d4!"  title="Original Value: Use Roll20 exploding dice e.g d4!"  >
+               <input type="text" name='attr_Agility' class='sheet-stat' value="d4!"  title="Current Value: Use Roll20 exploding dice e.g d4!"  >
+               <button type='roll' name='roll_Agility' value="@{PCName} Agility: Trait: [[ @{Agility} + @{Penalty} ]]  Wild: [[  @{WildDie} + @{Penalty}  ]]"></button><br />
+            </td>
+            <td>
+               <label  >Pace:</label>
+               <input type="text" name="attr_Pace" class="sheet-derived" value="6"  title="Pace = 6 unless you have an edge/hindrance" />
+               <label>Running:</label>
+               <input type="text" name='attr_RunDie' class='sheet-stat' value="d6"  title="Running die = d6 (no !) unless you have an edge/hindrance"  >
+               <button type='roll' name='roll_rundie' value="@{PCName} Running Die: [[ @{RunDie} ]]"></button><br />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label class="sheet-shortattrlabel">SMA:</label>
+               <input type="text" name='attr_OrigSmarts' class='sheet-stat' value="d4!"  title="Original Value: Use Roll20 exploding dice e.g d4!"  >
+               <input type="text" name='attr_Smarts' class='sheet-stat' value="d4!"  title="Current Value: Use Roll20 exploding dice e.g d4!" >
+               <button type='roll' name='roll_Smarts' value="@{PCName} Smarts: Trait: [[ @{Smarts} + @{Penalty} ]]   Wild: [[  @{WildDie} + @{Penalty}  ]]"></button><br />
+            </td>
+            <td>
+               <label>Parry:</label>
+               <input type="text" name="attr_Parry" class="sheet-derived" value="Fig/2+2"  title="Base Parry = Figthing skill divided by 2 + 2" />
+               <label>Charisma:</label>
+               <input type="text" name="attr_Charisma" class="sheet-stat" value="0"  title="Charisma = 0 unless you have an edge/hindrance" />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label class="sheet-shortattrlabel">SPI:</label>
+               <input type="text" name='attr_OrigSpirit' class='sheet-stat' value="d4!"  title="Original Value: Use Roll20 exploding dice e.g d4!"  >
+               <input type="text" name='attr_Spirit' class='sheet-stat' value="d4!"  title="Current Value: Use Roll20 exploding dice e.g d4!" >
+               <button type='roll' name='roll_Spirit' value="@{PCName} Spirit: Trait: [[ @{Spirit} + @{Penalty} ]]   Wild: [[  @{WildDie} + @{Penalty}  ]]"></button><br />
+            </td>
+            <td>
+               <label>Toughness:</label>
+               <input type="text" name="attr_Toughness" class="sheet-derived" value="Base+AP"  title="Base Toughness = Vigor die divided by 2 + 2" />
+               <label>Armor Pts:</label>
+               <input type="text" name="attr_ArmorPoints" class="sheet-stat" value="(0)"  title="Enter number of points of armor are you wearing.  Include this number in your toughness. "  />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label class="sheet-shortattrlabel">STR:</label>
+               <input type="text" name='attr_OrigStrength' class='sheet-stat' value="d4!"  title="Original Value: Use Roll20 exploding dice e.g d4!"  >
+               <input type="text" name='attr_Strength' class='sheet-stat' value="d4!"  title="Current Value: Use Roll20 exploding dice e.g d4!" >
+               <button type='roll' name='roll_STR' value="@{PCName} Strength: Trait: [[ @{Strength} + @{Penalty} ]]   Wild: [[  @{WildDie} + @{Penalty}  ]]"></button><br />
+            </td>
+            <td>
+               <label>Full PP:</label>
+               <input type="text" name="attr_Power_max" class="sheet-derived" value="Spi/2+2"  title="Power Points when fully rested" />
+               <label>Corruption:</label>
+               <input type="text" name="attr_Corruption" class="sheet-stat" value="0"  title="Corruption from hindrances or exposure to chaos" />
+               <button type='roll' name='roll_1d20' title="Fear Check" value="Fear Roll 1d20 [[ 1d20 ]]"></button>
+            <td>
+         </tr>
+         <tr>
+            <td>
+               <label class="sheet-shortattrlabel">VIG:</label>
+               <input type="text" name='attr_OrigVigor' class='sheet-stat' value="d4!"  title="Original Value: Use Roll20 exploding dice e.g d4!"  >
+               <input type="text" name='attr_Vigor' class='sheet-stat' value="d4!"  title="Current Value: Use Roll20 exploding dice e.g d4!" >
+               <button type='roll' name='roll_Vigor' value="@{PCName} Vigor: Trait: [[ @{Vigor} + @{Penalty} ]]   Wild: [[  @{WildDie} + @{Penalty}  ]]"></button><br />
+            </td>
+            <td>
+                <label>Strain:</label>
+               <input type="text" name="attr_MaxStrain" class="sheet-derived" value="Cur/Max"  title="Max = Lower of Vigor or Spirit die" />
+                <label>Devotion:</label>
+                <input type="text" name="attr_Devotion" class="sheet-stat" value="0"  title="Divine intervention rating from edges/hindrances" />
+                <button type='roll' name='roll_di'  title="Divine Intervention" value="@{PCName} pleads for their god to intervine on their behalf!  Spirit: Trait: [[ @{Spirit} + @{Devotion} - @{Corruption} ]]   Wild: [[  @{WildDie} + @{Devotion} - @{Corruption}  ]] against TN:12"></button>
+
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label class="sheet-longattrlabel">Wild Die:</label>
+               <input type="text" name="attr_WildDie" class="sheet-stat" value="d6!" title="Wild Die = d6! unless you have edges/hindrances" />
+            </td>
+            <td>
+    
+               <label class="sheet-redlabel" >Penalties:</label>
+               <input type="number" name="attr_Penalty" class="sheet-num" value="-1*@{Wounds} + -1*@{Fatigue} + @{EncMod} "   title="Wounds, Fatigue, and Encumbrance" disabled="true" />
+               <label  >Size:</label>
+               <input type="number" name="attr_Size" value="0" class="sheet-num2"   title="Size Value"  />
+            </td>
+         </tr>
+          </table>
+                <strong class='dee'>&nbsp;d4!</strong>
+   <button type='roll' name='roll_1d4' value="Roll 1d4! [[ 1d4! ]]"></button>
+   <strong class='dee'>&nbsp;d6!</strong>
+   <button type='roll' name='roll_1d6' value="Roll 1d6! [[ 1d6! ]]"></button>
+   <strong class='dee'>&nbsp;d8!</strong>
+   <button type='roll' name='roll_1d8' value="Roll 1d8! [[ 1d8! ]]"></button>
+   <strong class='dee'>&nbsp;d10!</strong>
+   <button type='roll' name='roll_1d10' value="Roll 1d10! [[ 1d10! ]]"></button>
+   <strong class='dee'>&nbsp;d12!</strong>
+   <button type='roll' name='roll_1d12' value="Roll 1d12! [[ 1d12! ]]"></button>
+   <strong class='dee'>&nbsp;2d6:</strong>
+   <button type='roll' name='roll_2d6' value="Roll 2d6! [[ 2d6! ]]"></button>
+<strong class='dee'>&nbsp;3d6:</strong>
+   <button type='roll' name='roll_3d6' value="Roll 3d6! [[ 3d6! ]]"></button>
+   <strong class='dee'>&nbsp;2d8:</strong>
+   <button type='roll' name='roll_2d8' value="Roll 2d8! [[ 2d8! ]]"></button>
+   <strong class='dee'>&nbsp;2d10:</strong>
+   <button type='roll' name='roll_2d10' value="Roll 2d10! [[ 2d10! ]]"></button>
+        
+  
+   <h3>Wounds and Fatigue </h3>
+   <p></p>
+   &nbsp;<strong class='wound'>[Wnd]&nbsp;&nbsp;&nbsp;</strong>  
+   <strong class='wound'>0</strong> <input type="radio" value='0' name='attr_Wounds' checked="checked" /><span></span> 
+   <strong class='wound'>1</strong> <input type="radio" value='1' name='attr_Wounds' /><span></span> 
+   <strong class='wound'>2</strong> <input type="radio" value='2' name='attr_Wounds' /><span></span> 
+   <strong class='wound'>3</strong> <input type="radio" value='3' name='attr_Wounds' /><span></span> 
+   <strong class='wound'>4</strong> <input type="radio" value='4' name='attr_Wounds' /><span></span> 
+   <strong class='wound'>&nbsp;&nbsp;INCAP!&nbsp;&nbsp;&nbsp;&nbsp;</strong> 
+   <input type="radio" value='3' name='attr_Fatigue' /><span></span>  <strong class='wound'>3</strong> 
+   <input type="radio" value='2' name='attr_Fatigue' /> <span></span> <strong class='wound'>2</strong> 
+   <input type="radio" value='1' name='attr_Fatigue' /> <span></span> <strong class='wound'>1</strong>
+   <input type="radio" value='0' name='attr_Fatigue'  checked="checked" /> <span></span> <strong class='wound'>0</strong>
+   <strong class='wound'>&nbsp;&nbsp;&nbsp;[Fat]</strong>   
+   <p></p>
+   <h3>War Gear </h3>
+   <strong class='dee'>&nbsp;Un-Shake! </strong>
+   <input type="text" name="attr_unShakeMod" class="sheet-weight" value="0"  title="Un-Shake roll modifier (no +)"/> 
+   <button type='roll' name='roll_unShake' value="/em @{PCName} attempts to shake it off: \n Trait: [[ @{Spirit} + @{Penalty} + @{unShakeMod} ]]   Wild: [[  @{WildDie} + @{Penalty} + @{unShakeMod}  ]]"></button>
+   <strong class='dee'>&nbsp;Soak It! </strong>
+   <input type="text" name="attr_soakMod" class="sheet-weight" value="0"  title="Wound Soak roll modifier (no +)"/> 
+   <button type='roll' name='roll_soakWound' value="/em @{PCName} attempts to soak wounds: \n Trait: [[ @{Vigor} + @{Penalty} + @{soakMod} ]]   Wild: [[  @{WildDie} + @{Penalty} + @{soakMod}  ]]"></button>
+   
+    <label class="sheet-modlabel"> Att Mods:</label>
+   <input type="number" class="sheet-num1" name="attr_CbtMod" value="0"  title="Situational modifiers to your combat skills - spells, cover, darkness, etc" /><br>
+
+  
+   <!-- handling Frenzy Edge on first weapon -->
+
+   <input type="text" name="attr_firstweapon"  value="Frenzy Weapon here" class="sheet-wsnames"  title="Name of your weapon"  />
+   <strong class='dee'>&nbsp;A:</strong>
+   <input type="text" name="attr_firstattack" class="sheet-short" value="Attack"  title="Attack skill with this weapon - e.g. Fight, Shoot, or Throw" />
+   <input type="text" name="attr_firstmods" class="sheet-xshort" value="Mods"  title="Attack modifier with this weapon  (no + sign) e.g. 4 or -2" />
+   <button type='roll' name='roll_firstattack' value="/em @{PCName} attacks with @{firstweapon}! \n\n Trait: [[ @{firstattack} + @{firstmods} + @{CbtMod} + @{Penalty} ]] Frenzy: [[ (@{firstattack} + @{firstmods} + @{CbtMod} + @{Penalty} - 2 )*@{Frenzy} + @{ImprFrenzy}  ]]   Wild: [[  @{WildDie}  + @{firstmods} + @{CbtMod} + @{Penalty}  ]]" > </button>
+   <strong class='dee'>&nbsp;D:</strong>
+   <input type="text" name="attr_firstdamage" class="sheet-medium" value="Damage"  title="Normal damage with this weapon" />
+   <button type='roll' name='roll_firstdamage' value="@{PCName} strikes foe with @{firstweapon}: [[ @{firstdamage} ]]    Raise: [[ 1d6! ]]  "></button>
+   Fr?&nbsp; <input type="checkbox"  value=1 name='attr_Frenzy' title="Check if this is a Frenzy attack"  /><span></span>
+   <input type="checkbox" value=2 name='attr_ImprFrenzy' title="Check if this is an Improved Frenzy attack"   /><span></span>
+   <input type="text" name="attr_firstwpnweight" class="sheet-weight" value="Wt."  title="Weight of this weapon" />
+
+  
+   <fieldset class="repeating_weapon">
+
+      <input type="text" name="attr_weapon"  value="Weapon" class="sheet-wsnames"  title="Name of your weapon"  />
+      <strong class='dee'>&nbsp;A:</strong>
+      <input type="text" name="attr_attack" class="sheet-short" value="Attack"  title="Attack skill with this weapon w/o mods - e.g. Fight, Shoot, or Throw" />
+      <input type="text" name="attr_attackmods" class="sheet-xshort" value="Mods"  title="Attack modifier with this weapon  (no + sign) e.g. 4 or -2" />
+      <button type='roll' name='roll_attack' value="/em @{PCName} attacks with @{weapon}: \n [[ @{attack} + @{attackmods} + @{CbtMod} + @{Penalty} ]]  Wild: [[  @{WildDie}  + @{attackmods} + @{CbtMod} + @{Penalty}  ]]" > </button>
+      <strong class='dee'>&nbsp;D:</strong>
+      <input type="text" name="attr_damage" class="sheet-medium" value="Damage"  title="Normal damage with this weapon" />
+      <button type='roll' name='roll_damage' value="@{PCName} damages foe with @{weapon}: [[ @{damage} ]]  Raise: [[ 1d6! ]]  "></button>
+      <input type="text" name="attr_range" class="sheet-range" value="Rng S/M/L"  title="Effective Range of this weapon if not melee" />
+      <input type="text" name="attr_wpnweight" class="sheet-weight" value="Wt."  title="Weight of this weapon" /><br>
+      <span class='dee'>&nbsp;ROF:</span>
+      <input type="text" name="attr_wpnROF" class="sheet-weight" value="ROF"  title="Rate of Fire of this weapon" />
+      <span class='dee'>&nbsp;Shots:</span>
+      <input type="text" name="attr_wpnShots" class="sheet-weight" value="Shots"  title="Number of Shots before you need to reload this weapon" />
+      <span class='dee'>&nbsp;Ammo:</span>
+      <input type="number" name="attr_wpnAmmo" class="sheet-weight" value="10" title="Current Ammo remaining before next reload"/>
+      <span class='dee'>&nbsp;Notes:</span>
+      <input type="text" name="attr_wpnNotes" class="sheet-long" value="Weapon Details"  title="Additonal information about this weapon" />
+
+   </fieldset>
+
+   <p></p>
+   
+  
+   <p></p>
+   <h3>Possessions </h3>
+   <fieldset class="repeating_gear">
+      <input type="text" name="attr_item" class="sheet-effect" value="Item, Armor, Shield, etc."  title="The thing you are carrying"  />
+      <input type="text" name="attr_location" class="sheet-medium" value="Location"  title="Where you are carrying/storing it" />
+      <input type="text" name="attr_weight" class="sheet-weight" value="Wt."  title="How much it weighs" />
+   </fieldset>
+   <p></p>
+
+   <h3>Powers</h3>
+   <strong class='dee'>&nbsp;d6:</strong>
+   <button type='roll' name='roll_1d6' value="Roll 1d6! [[ 1d6! ]]"></button>
+   <strong class='dee'>&nbsp;2d6:</strong>
+   <button type='roll' name='roll_2d6' value="Roll 2d6! [[ 2d6! ]]"></button>
+   <strong class='dee'>&nbsp;3d6:</strong>
+   <button type='roll' name='roll_3d6' value="Roll 3d6! [[ 3d6! ]]"></button>
+   <strong class='dee'>&nbsp;2d8:</strong>
+   <button type='roll' name='roll_2d8' value="Roll 2d8! [[ 2d8! ]]"></button>
+   <strong class='dee'>&nbsp;2d10:</strong>
+   <button type='roll' name='roll_2d10' value="Roll 2d10! [[ 2d10! ]]"></button>
+ 
+   
+   <label class="sheet-modlabel" >Pow Mods:</label>
+   <input type="number" class="sheet-num1" name="attr_ArcMod" value="0" title="Situational modifiers to your power skills " />
+   
+   <strong class='dee'>Cur PP:</strong><input type="number" class="sheet-num1" name="attr_CurrPower" value="@{Power}" disabled="true"  title="Tally of radio buttons below" /><br>
+   &nbsp;
+   <input type="radio" value='0' name='attr_Power' /><span></span><strong class='dee'>0</strong>&nbsp;
+   <input type="radio" value='1' name='attr_Power' /><span></span>
+   <input type="radio" value='2' name='attr_Power' /><span></span>
+   <input type="radio" value='3' name='attr_Power' /><span></span>
+   <input type="radio" value='4' name='attr_Power' checked="checked" /><span></span>
+   <input type="radio" value='5' name='attr_Power' /><span></span>&nbsp;&nbsp;&nbsp;<strong class='dee'>5</strong>&nbsp;
+   <input type="radio" value='6' name='attr_Power' /><span></span>
+   <input type="radio" value='7' name='attr_Power' /><span></span>
+   <input type="radio" value='8' name='attr_Power' /><span></span>
+   <input type="radio" value='9' name='attr_Power' /><span></span>
+   <input type="radio" value='10' name='attr_Power' /><span></span><strong class='dee'>10</strong>&nbsp;
+   <input type="radio" value='11' name='attr_Power' /><span></span>
+   <input type="radio" value='12' name='attr_Power' /><span></span>
+   <input type="radio" value='13' name='attr_Power' /><span></span>
+   <input type="radio" value='14' name='attr_Power' /><span></span>
+   <input type="radio" value='15' name='attr_Power' /><span></span><strong class='dee'>15</strong>&nbsp;
+   <input type="radio" value='16' name='attr_Power' /><span></span>
+   <input type="radio" value='17' name='attr_Power' /><span></span>
+   <input type="radio" value='18' name='attr_Power' /><span></span>
+   <input type="radio" value='19' name='attr_Power' /><span></span>
+   <input type="radio" value='20' name='attr_Power' /><span></span><strong class='dee'>20</strong>&nbsp;
+   <input type="radio" value='21' name='attr_Power' /><span></span>
+   <input type="radio" value='22' name='attr_Power' /><span></span>
+   <input type="radio" value='23' name='attr_Power' /><span></span>
+   <input type="radio" value='24' name='attr_Power' /><span></span>
+   <input type="radio" value='25' name='attr_Power' /><span></span><strong class='dee'>25</strong>&nbsp;<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="radio" value='26' name='attr_Power' /><span></span>
+   <input type="radio" value='27' name='attr_Power' /><span></span>
+   <input type="radio" value='28' name='attr_Power' /><span></span>
+   <input type="radio" value='29' name='attr_Power' /><span></span>
+   <input type="radio" value='30' name='attr_Power' /><span></span><strong class='dee'>30</strong>&nbsp;
+   <input type="radio" value='31' name='attr_Power' /><span></span>
+   <input type="radio" value='32' name='attr_Power' /><span></span>
+   <input type="radio" value='33' name='attr_Power' /><span></span>
+   <input type="radio" value='34' name='attr_Power' /><span></span>
+   <input type="radio" value='35' name='attr_Power' /><span></span><strong class='dee'>35</strong>&nbsp;
+   <input type="radio" value='36' name='attr_Power' /><span></span>
+   <input type="radio" value='37' name='attr_Power' /><span></span>
+   <input type="radio" value='38' name='attr_Power' /><span></span>
+   <input type="radio" value='39' name='attr_Power' /><span></span>
+   <input type="radio" value='40' name='attr_Power' /><span></span><strong class='dee'>40</strong>&nbsp;
+   <input type="radio" value='41' name='attr_Power' /><span></span>
+   <input type="radio" value='42' name='attr_Power' /><span></span>
+   <input type="radio" value='43' name='attr_Power' /><span></span>
+   <input type="radio" value='44' name='attr_Power' /><span></span>
+   <input type="radio" value='45' name='attr_Power' /><span></span><strong class='dee'>45</strong>&nbsp;
+   <input type="radio" value='46' name='attr_Power' /><span></span>
+   <input type="radio" value='47' name='attr_Power' /><span></span>
+   <input type="radio" value='48' name='attr_Power' /><span></span>
+   <input type="radio" value='49' name='attr_Power' /><span></span>
+   <input type="radio" value='50' name='attr_Power' /><span></span><strong class='dee'>50</strong>&nbsp;
+   <fieldset class="repeating_arcane">
+      <input type="text" name="attr_powername"  class="sheet-wsnames"  value="Power Name"  title="Power name" />
+      <strong class='dee'>PP:</strong>
+      <input type="text" name="attr_cost" class="sheet-short" value="Cost"  title="Power Point cost" />
+      <strong class='dee'>Ar:</strong>
+      <input type="text" name="attr_arcaneroll" class="sheet-short" value="Arcane Roll"  title="Power skill roll without mods" />
+      <input type="text" name="attr_arcanerollmods" class="sheet-xshort" value="Mods"  title="Power skill roll mods, if any  (no + sign) e.g. 4 or -2" />
+      <button type='roll' name='roll_arcane' value="/em @{PCName} uses @{powername}: \n [[ @{arcaneroll} + @{arcanerollmods} + @{ArcMod} + @{Penalty} ]]  Wild: [[  @{WildDie}  + @{arcanerollmods} + @{ArcMod} + @{Penalty}  ]] \n **Effect:** *@{Effect}* \n"></button>
+      <strong class='dee'>Rng:</strong>
+      <input type="text" name="attr_range" class="sheet-spellrange" value="Rng S/M/L"  title="Effective range of the power" />
+      <input type="text" name="attr_effect" class="sheet-effect" value="Effect"  title="What the power does when used" />
+      <strong class='dee'>Dur:</strong>
+      <input type="text" name="attr_duration" class="sheet-medium" value="Duration"  title="How long the power lasts and the maintenance cost, if any" />
+   </fieldset>
+
+
+
+   <h3>Other Details </h3>
+   <table style="width: 100%;">
+      <thead>
+         <tr>
+            <th>Concept</th>
+            <th>Catch Phrase</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               <input type="text" name="attr_Concept" class="sheet-long"  title="Any theme for this character" />
+            </td>
+            <td>
+               <input type="text" name="attr_CatchPhrase" class="sheet-xlong"  title="Signature saying" />
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <table style="width: 100%;">
+      <thead>
+         <tr>
+            <th>Homeland</th>
+            <th>Tribe, Clan or Community</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               <input type="text" name="attr_Homeland" class="sheet-long"  title="The region/city/land you hail from" />
+            </td>
+            <td>
+               <input type="text" name="attr_Tribe" class="sheet-xlong"  title="The tribe/clan/lineage you hail from" />
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <table style="width: 100%;">
+      <thead>
+         <tr>
+            <th>Guilds, Societies, or Afiliations</th>
+            <th>Appearance</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               <input type="text" name="attr_CultCollege" class="sheet-long"  title="The god you worship or the sorcery school you belong to" />
+            </td>
+            <td>
+               <input type="text" name="attr_Appearance" class="sheet-xlong"  title="Hair, eyes, weight, height, features, etc." />
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<div class='sheet-smalldiv'>
+   <h3>Credits:</h3>
+     <input type="text" name="attr_Credits" class="sheet-long" value="0"  title="Number of Credits you possess" />
+   <p></p>
+   <h3>Skills</h3>
+   <strong >&nbsp;&nbsp;&nbsp;Untrained Skill:</strong>
+   <button type='roll' name='roll_untrainedskill' value="@{PCName} Untrained Skill used: Trait: [[ d4! - 2 + @{Penalty} ]]  Wild: [[  @{WildDie} - 2 + @{Penalty}  ]]"></button>
+   <fieldset class="repeating_skill">
+      <input type="text" name="attr_skill" class="sheet-skills" value="Skill Name"  title="The name of the skill" />
+      <input type="text" name="attr_skillroll" class="sheet-short" value="d4!"  title="The base skill roll - use Roll20 exploding dice string e.g. d4!" />
+      <input type="text" name="attr_skillmod" class="sheet-xshort" value="0"  title="Any modifier to the skill roll (no + sign) e.g. 4 or -2" />
+      <button type='roll' name='roll_skill' value="/em @{PCName} uses @{skill} Skill: \n [[ @{skillroll} + @{skillmod} + @{Penalty} ]]  Wild: [[  @{WildDie}  + @{skillmod} + @{Penalty}  ]]"></button>
+   </fieldset>
+   <p></p>
+   <h3>Hindrances</h3>
+   <fieldset class="repeating_hindrance">
+      <input type="text" name="attr_hindrance" class="sheet-hindrances" value="Name  (Modifiers)"  title="Name and mods from your Hindrance" />
+   </fieldset>
+   <p></p>
+   <h3>Edges</h3>
+   <fieldset class="repeating_edge">
+      <input type="text" name="attr_edge" class="sheet-edges" value="Name  (Modifiers)"  title="Name and mods from your Edge" />
+   </fieldset>
+   <p></p>
+   <h3>Notes</h3>
+   <textarea name="attr_Notes"></textarea>
+   <h3>Injuries and Other Details</h3>
+   <textarea name="attr_Injury"></textarea>
+
+   <h3>Encumbrance</h3>
+   <strong class='dee'>Enc:</strong>
+   <input type="number" name="attr_EncLoad" class="sheet-short" value="0" min=0  title="Sum of weight of all gear you are carrying"  />
+   <strong class='dee'>Max:</strong>
+   <input type="number" name="attr_EncLoad_max" class="sheet-short" value="0" min=0  title="Max weight you can carry - STR x5 unless you have an Edge" />
+   <strong class='dee'>Mod:</strong>
+   <input type="number" name="attr_EncMod" class="sheet-short" value="0" max=0  title="Encumbrance penalty" />
+</div>
