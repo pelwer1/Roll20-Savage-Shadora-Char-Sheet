@@ -1,0 +1,324 @@
+/* labels for controls */
+.charsheet label {
+    display: inline-block;
+    width: 95px;
+    text-align: right;
+}
+
+/* lines between rows */
+div[data-groupname="repeating_weapon"] .repitem
+{
+    border-top: 1px solid #3d3d3d;
+}
+div[data-groupname="repeating_arcane"] .repitem
+{
+    border-top: 1px solid #3d3d3d;
+}
+
+
+.charsheet label.sheet-redlabel {
+    color: red;
+    display: inline-block;
+    width: 95px;
+    text-align: right;
+}
+.charsheet label.sheet-shortlabel {
+    /* font-size: 1.2em;  try to control label font */
+    display: inline-block;
+    width: 35px;
+    text-align: right;
+}
+
+.charsheet label.sheet-shortattrlabel {
+    font-size: 14px;  /* try to control label font */
+    display: inline-block;
+    width: 35px;
+    text-align: right;
+}
+.charsheet label.sheet-longattrlabel  {
+    font-size: 14px;  /* try to control label font */
+    display: inline-block;
+    width: 95px;
+    text-align: right;
+}
+
+.charsheet label.sheet-bluelabel {
+    color: blue;
+    display: inline-block;
+    width: 95px;
+    text-align: right;
+}
+
+.charsheet label.sheet-modlabel {
+    color: blue;
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+
+.charsheet label.sheet-longlabel {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+/* inout text boxes */
+.charsheet input {
+    display: inline-block;
+    width: 165px;
+}
+
+/* inout text boxes */
+.charsheet input.sheet-wsnames  {
+    display: inline-block;
+    width: 165px;
+    font-weight:bold;
+    color: chocolate;
+}
+
+/* hidden  text boxes */
+.charsheet input.sheet-hiddenmax  {
+    display: inline-block;
+    width: 50;
+}
+
+
+
+/* formatting for the "d" before dice entries */
+.charsheet strong.sheet-dee {
+    font-size: 1.0em;
+    font-weight: bold;
+    padding-right: 1px;
+}
+
+/* formatting for the #'s in wounds and fatigue */
+.charsheet  strong.sheet-wound {
+    font-size: 1.6em;
+	font-weight: bold;
+    padding-right: 0;
+    padding-left: 0;
+    vertical-align: middle;
+
+}
+
+/* shorter/larger than default input text boxes */
+.charsheet input.sheet-xshort {
+    width: 2em;
+}
+.charsheet input.sheet-pp {
+    width: 2.5em;
+}
+.charsheet input.sheet-weight {
+    width: 3em;
+}
+.charsheet input.sheet-stat {
+    width: 4.0em;
+}
+.charsheet input.sheet-short {
+    width: 3.75em;
+}
+.charsheet input.sheet-mods {
+    width: 3em;
+}
+
+.charsheet input[type="number"].sheet-num {
+    width: 5em;
+}
+.charsheet input[type="number"].sheet-num1 {
+    width: 3.0em;
+}
+.charsheet input[type="number"].sheet-num2 {
+    width: 4.55em;
+}
+
+.charsheet input.sheet-range {
+    width: 5em;
+}
+.charsheet input.sheet-spellrange {
+    width: 10.75em;
+}
+.charsheet input.sheet-derived {
+    width: 5em;
+}
+.charsheet input.sheet-names {
+    width: 6em;
+}
+
+.charsheet input.sheet-medium {
+    width: 7em;
+} 
+.charsheet input.sheet-injury {
+    width: 8.5em;
+} 
+.charsheet input.sheet-titles {
+    width: 17em;
+} 
+
+.charsheet input.sheet-skills {
+    width: 135px;
+} 
+/* default is ~12.5em */
+.charsheet input.sheet-power {
+    width: 16.25em;
+}
+.charsheet input.sheet-long {
+    width: 19.25em;
+}
+.charsheet input.sheet-xlong {
+    width: 24em;
+}
+.charsheet input.sheet-edges {
+        margin-left: 1px;
+        width: 250px;
+}
+.charsheet input.sheet-hindrances {
+        margin-left: 1px;
+        width: 250px;
+}
+.charsheet input.sheet-xxlong {
+    width: 26em;
+}
+.charsheet input.sheet-effect {
+    width: 34em;
+}
+.charsheet input.sheet-xxxlong {
+    width: 36em;
+}
+
+/* rank drop down */
+.sheet-rank {
+    display: inline-block;
+    width: 7.5em;
+    position:relative; 
+    top: 4px;
+    left: 0;
+}
+
+/* race drop down */
+.sheet-race {
+    display: inline-block;
+    width: 6.5em;
+    position:relative; 
+    top:4px;
+    left:0;
+}
+
+/* top level sheet attributes */
+.charsheet {
+	background-image: url("http://freeseamlesstextures.com/images/23-white-cardboard-background-sml.jpg");
+    float: left;
+    width: 840px;
+}
+
+/* the left panel on the page */
+.sheet-bigdiv
+{
+    clear: left;
+    float: left;
+	width: 585px;
+	padding: 0 0;
+	display: inline;
+    border: solid 1px #000;
+}
+
+
+/* the right panel on the page */
+.sheet-smalldiv
+{
+	float: right;
+	width: 250px;
+	padding: 0 0;
+	display: inline;
+
+}
+
+/* indent headings a little */
+.charsheet h2  {
+    margin-left: 1px;
+    text-align: center; 
+    color: #FFF; 
+    background-color: #000;
+}
+.charsheet h3 {
+    margin-left: 1px;
+    text-align: center; 
+    color: #FFF; 
+    background-color: #000;
+}
+
+/* Hide actual radio/checkbox */
+input[type="radio"],
+input[type="checkbox"]
+{
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    left: 6px;
+    margin: -10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Fake radio/checkbox */
+input[type="radio"] + span::before,
+input[type="checkbox"] + span::before
+{
+    margin-right: 4px;  /* space between dots */
+    border: solid 1px #a8a8a8;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    
+    -moz-box-shadow: 0 0 2px #ccc;
+    -webkit-box-shadow: 0 0 2px #ccc;
+    box-shadow: 0 0 2px #ccc;
+    
+    background: #f6f6f6;
+    background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -o-radial-gradient(#f6f6f6, #dfdfdf);
+    background: radial-gradient(#f6f6f6, #dfdfdf);
+}
+
+/* Fake radio */
+input[type="radio"] + span::before
+{
+    content: "";
+    width: 12px;
+    height: 12px;
+    font-size: 24px;
+    
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked + span::before
+{
+    content: "•";
+}
+
+/* Fake checkbox */
+input[type="checkbox"] + span::before
+{
+    content: "";
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+input[type="checkbox"]:checked + span::before
+{
+    content: "✓";
+}
+
+
