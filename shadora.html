@@ -8,6 +8,7 @@
    
    -->
 <div class="sheet-bigdiv">
+   <!--   <h2>Savage Traveler!</h2>   -->
    <h2>Savage Shadora!</h2>
    <table style="width: 100%;">
       <thead>
@@ -212,10 +213,12 @@
    <strong class='dee'>&nbsp;A:</strong>
    <input type="text" name="attr_firstattack" class="sheet-short" value="Attack"  title="Attack skill with this weapon - e.g. Fight, Shoot, or Throw" />
    <input type="text" name="attr_firstmods" class="sheet-xshort" value="Mods"  title="Attack modifier with this weapon  (no + sign) e.g. 4 or -2" />
-   <button type='roll' name='roll_firstattack' value="/em @{PCName} attacks with @{firstweapon}! \n\n Trait: [[ @{firstattack} + @{firstmods} + @{CbtMod} + @{Penalty} ]] Frenzy: [[ (@{firstattack} + @{firstmods} + @{CbtMod} + @{Penalty} - 2 )*@{Frenzy} + @{ImprFrenzy}  ]]   Wild: [[  @{WildDie}  + @{firstmods} + @{CbtMod} + @{Penalty}  ]]" > </button>
+
+   <button type='roll' name='roll_firstattack' value="/em @{PCName} attacks with @{firstweapon}! \n\n Trait: [[ @{firstattack} + @{firstmods} + @{CbtMod} + @{Penalty} ]] Frenzy: [[ (@{firstattack} + @{firstmods} + @{CbtMod} + @{Penalty} - 2 )*@{Frenzy} + @{ImprFrenzy}  ]]   Wild: [[  @{WildDie}  + @{firstmods} + @{CbtMod} + @{Penalty}  ]] \n Hit at: [[ @{target|Parry} ]]  Raise at: [[ @{target|Parry}+4 ]]" > </button>
+
    <strong class='dee'>&nbsp;D:</strong>
    <input type="text" name="attr_firstdamage" class="sheet-medium" value="Damage"  title="Normal damage with this weapon" />
-   <button type='roll' name='roll_firstdamage' value="@{PCName} strikes foe with @{firstweapon}: [[ @{firstdamage} ]]    Raise: [[ 1d6! ]]  "></button>
+   <button type='roll' name='roll_firstdamage' value="@{PCName} strikes foe with @{firstweapon}: [[ @{firstdamage} ]] Raise: [[ 1d6! ]] \n Shake at: [[ @{target|Toughness} ]]  Wounds at: [[ @{target|Toughness}+4 ]]/[[ @{target|Toughness}+8 ]]/[[ @{target|Toughness}+12 ]]/[[ @{target|Toughness}+16 ]] Armor: [[ @{target|Armor} ]] "></button>
    Fr?&nbsp; <input type="checkbox"  value=1 name='attr_Frenzy' title="Check if this is a Frenzy attack"  /><span></span>
    <input type="checkbox" value=2 name='attr_ImprFrenzy' title="Check if this is an Improved Frenzy attack"   /><span></span>
    <input type="text" name="attr_firstwpnweight" class="sheet-weight" value="Wt."  title="Weight of this weapon" />
@@ -227,10 +230,10 @@
       <strong class='dee'>&nbsp;A:</strong>
       <input type="text" name="attr_attack" class="sheet-short" value="Attack"  title="Attack skill with this weapon w/o mods - e.g. Fight, Shoot, or Throw" />
       <input type="text" name="attr_attackmods" class="sheet-xshort" value="Mods"  title="Attack modifier with this weapon  (no + sign) e.g. 4 or -2" />
-      <button type='roll' name='roll_attack' value="/em @{PCName} attacks with @{weapon}: \n [[ @{attack} + @{attackmods} + @{CbtMod} + @{Penalty} ]]  Wild: [[  @{WildDie}  + @{attackmods} + @{CbtMod} + @{Penalty}  ]]" > </button>
+      <button type='roll' name='roll_attack' value="/em @{PCName} attacks with @{weapon}: \n [[ @{attack} + @{attackmods} + @{CbtMod} + @{Penalty} ]]  Wild: [[  @{WildDie}  + @{attackmods} + @{CbtMod} + @{Penalty}  ]] \n Hit at: [[ @{target|Parry} ]]  Raise at: [[ @{target|Parry}+4 ]] " > </button>
       <strong class='dee'>&nbsp;D:</strong>
       <input type="text" name="attr_damage" class="sheet-medium" value="Damage"  title="Normal damage with this weapon" />
-      <button type='roll' name='roll_damage' value="@{PCName} damages foe with @{weapon}: [[ @{damage} ]]  Raise: [[ 1d6! ]]  "></button>
+      <button type='roll' name='roll_damage' value="@{PCName} damages foe with @{weapon}: [[ @{damage} ]]  Raise: [[ 1d6! ]] \n Shake at: [[ @{target|Toughness} ]]  Wounds at: [[ @{target|Toughness}+4 ]]/[[ @{target|Toughness}+8 ]]/[[ @{target|Toughness}+12 ]]/[[ @{target|Toughness}+16 ]] Armor: [[ @{target|Armor} ]] "></button>
       <input type="text" name="attr_range" class="sheet-range" value="Rng S/M/L"  title="Effective Range of this weapon if not melee" />
       <input type="text" name="attr_wpnweight" class="sheet-weight" value="Wt."  title="Weight of this weapon" /><br>
       <span class='dee'>&nbsp;ROF:</span>
